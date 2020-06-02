@@ -30,7 +30,7 @@ Usuario.create = ( usuario, result ) => {
 };
 
 Usuario.findByName = (nobreUsuario, result) => {
-    sql.query(`SELECT * FROM tb_usuarios WHERE id = ${nobreUsuario}`, (err, res) => {
+    sql.query("SELECT * FROM tb_usuarios WHERE nombreUsuario = " + "'" + nobreUsuario + "'", (err, res) => {
       if (err) {
         console.log("error: ", err);
         result(err, null);
