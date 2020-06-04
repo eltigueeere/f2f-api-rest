@@ -48,6 +48,25 @@ Usuario.findByName = (nobreUsuario, result) => {
     });
 };
 
+Usuario.findByTelefono = (telefonoUsuario, result) => {
+  sql.query("SELECT * FROM tb_usuarios WHERE telefono = " + "'" + telefonoUsuario + "'", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    if (res.length) {
+      console.log("found customer: ", res[0]);
+      result(null, res[0]);
+      return;
+    }
+
+    // not found Customer with the id
+    result({ kind: "not_found" }, null);
+  });  
+};
+
   Usuario.getAll = result => {
     sql.query("SELECT * FROM tb_usuarios", (err, res) => {
       if (err) {

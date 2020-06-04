@@ -49,9 +49,10 @@ exports.findOne = (req, res) => {
     Usuario.findByName(req.params.nobreUsuario, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
-          res.status(404).send({
+          /*res.status(404).send({
             message: `Not found usuario with id ${req.params.nobreUsuario}.`
-          });
+          });*/
+          res.send(data);
         } else {
           res.status(500).send({
             message: "Error retrieving Usuario with id " + req.params.nobreUsuario
@@ -59,4 +60,21 @@ exports.findOne = (req, res) => {
         }
       } else res.send(data);
     });
+};
+
+exports.findOneTelefono = (req, res) => {
+  Usuario.findByTelefono(req.params.telefonoUsuario, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        /*res.status(404).send({
+          message: `Not found usuario with id ${req.params.nobreUsuario}.`
+        });*/
+        res.send(data);
+      } else {
+        res.status(500).send({
+          message: "Error retrieving Usuario with id " + req.params.telefonoUsuario
+        });
+      }
+    } else res.send(data);    
+  });
 };
