@@ -18,6 +18,7 @@ app.get("/", (req, res) => {
 //add justo despues 
 //require("./app/routes/customer.routes.js")(app);
 require("./app/routes/usuarios.routes.js")(app);
+require("./app/routes/posterior_login.routes.js")(app);
 // set port, listen for requests
 app.listen(3000, () => {
   console.log("Server is running on port 3000.");

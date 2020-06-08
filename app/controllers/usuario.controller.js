@@ -60,7 +60,8 @@ exports.findOne = (req, res) => {
         }
       } else res.send(data);
     });
-};
+}; 
+
 
 exports.findOneTelefono = (req, res) => {
   Usuario.findByTelefono(req.params.telefonoUsuario, (err, data) => {

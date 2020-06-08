@@ -2,6 +2,7 @@ const sql = require("./db.js");
 
 //constructor
 const Usuario = function(usuario){
+  //tb_usuarios
   this.id = usuario.id;
   this.nombre = usuario.nombre;
   this.apellido = usuario.apellido;

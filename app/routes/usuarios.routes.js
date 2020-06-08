@@ -8,4 +8,5 @@ module.exports = app =>{
     app.get("/usuario/:nobreUsuario", usuario.findOne);
 
     app.get("/usuarioTelefono/:telefonoUsuario", usuario.findOneTelefono);
+    
 };
