@@ -47,3 +47,14 @@ exports.findAllJoin = (req, res) => {
     });
 };
 
+exports.findAllJoinR = (req, res) => {
+  Apuesta.getAllJoinR(req.params.id, (err, data) => {
+        if (err)
+        res.status(500).send({
+            message:
+            err.message || "Some error occurred while retrieving Apuesta."
+        });
+        else res.send(data);
+        
+    });
+};
