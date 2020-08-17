@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 
 //add justo despues 
 //require("./app/routes/customer.routes.js")(app);
+require("./app/routes/posturas.routes.js")(app);
 require("./app/routes/usuarios.routes.js")(app);
 require("./app/routes/posterior_login.routes.js")(app);
 require("./app/routes/apuestas.routes.js")(app);
