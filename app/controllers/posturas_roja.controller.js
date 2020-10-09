@@ -1,4 +1,4 @@
-const Postura = require("../models/postura.model.js");
+const Postura = require("../models/posturas_roja.model.js");
 
 exports.create = (req, res) => {
 
@@ -39,5 +39,5 @@ exports.create = (req, res) => {
             err.message || "Some error occurred while creating the Usuario."
         });
       else res.send(data);
-    });  
+    });
 };

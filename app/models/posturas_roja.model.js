@@ -26,21 +26,10 @@ const Postura = function(postura){
   this.fecha = postura.fecha;
 };
 
-/*Postura.create = ( postura, result ) => {
-    sql.query( "INSERT INTO tb_posturas1 SET ?", postura, ( err, res ) => {
-        if( err ){
-            console.log("error: ", err);
-            result(err, null);
-            return; 
-        }
-        console.log("Postura Guardada: ", { id: res.cerrado, ...postura });
-        result(null, { id: res.cerrado, ...postura });
-    });
-};*/
-
 Postura.create = ( postura, result ) => {
+    console.log(postura.id_apuesta);
     //console.log("UPDATE tb_posturas1 SET id_usuario_V =" + "'" + postura.id_usuario_V + "'" + ", color_Apuesta_Verde = " + "'" + postura.color_Apuesta_Verde + "'" + ", monto_V = "  + "'" + postura.monto_V + "'" + ", fecha = "  + "'" + postura.fecha + "'" +  " WHERE tb_posturas1.id_usuario_R != " + "'" + postura.id_usuario_V + "'" + " AND tb_posturas1.id_apuesta = " + "'" +  postura.id_apuesta + "'" + " AND tb_posturas1.color_Apuesta_Verde != " + "'" +  postura.color_Apuesta_Verde + "'" +  " AND tb_posturas1.monto_R = " + "'" + postura.monto_V + "'" + " AND tb_posturas1.monto_V = '0' AND tb_posturas1.color_Apuesta_Verde = 0 ORDER BY tb_posturas1.fecha LIMIT 0, 1 ");
-    sql.query( "UPDATE tb_posturas1 SET id_usuario_V =" + "'" + postura.id_usuario_V + "'" + ", color_Apuesta_Verde = " + "'" + postura.color_Apuesta_Verde + "'" + ", monto_V = "  + "'" + postura.monto_V + "'" + ", fecha = "  + "'" + postura.fecha + "'" +  " WHERE ( tb_posturas1.id_usuario_R != " + "'" + postura.id_usuario_V + "'" + " AND tb_posturas1.id_apuesta = " + "'" +  postura.id_apuesta + "'" + " AND tb_posturas1.color_Apuesta_Verde != " + "'" +  postura.color_Apuesta_Verde + "'" +  " AND tb_posturas1.monto_R = " + "'" + postura.monto_V + "'" + " AND tb_posturas1.monto_V = '0' AND tb_posturas1.color_Apuesta_Verde = 0 ) ORDER BY tb_posturas1.fecha LIMIT 1",( err, res ) => {
+    sql.query( "UPDATE tb_posturas1 SET id_usuario_R =" + "'" + postura.id_usuario_R + "'" + ", color_Apuesta_Rojo = " + "'" + postura.color_Apuesta_Rojo + "'" + ", monto_R = "  + "'" + postura.monto_R + "'" + ", fecha = "  + "'" + postura.fecha + "'" +  " WHERE ( tb_posturas1.id_usuario_V != " + "'" + postura.id_usuario_R + "'" + " AND tb_posturas1.id_apuesta = " + "'" +  postura.id_apuesta + "'" + " AND tb_posturas1.color_Apuesta_Rojo != " + "'" +  postura.color_Apuesta_Rojo + "'" +  " AND tb_posturas1.monto_V = " + "'" + postura.monto_R + "'" + " AND tb_posturas1.monto_R = '0' AND tb_posturas1.color_Apuesta_Rojo = 0 ) ORDER BY tb_posturas1.fecha LIMIT 1",( err, res ) => {
         if( err ){
             console.log("error No EMMPRREJADA VERDE: ", err);
             result(err, null);
@@ -65,5 +54,7 @@ Postura.create = ( postura, result ) => {
         }
     });    
 };
+  
+  
 
 module.exports = Postura;
