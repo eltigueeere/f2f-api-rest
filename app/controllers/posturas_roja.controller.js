@@ -28,6 +28,8 @@ exports.create = (req, res) => {
       id_usuario_R:req.body.id_usuario_R,
       color_Apuesta_Rojo:req.body.color_Apuesta_Rojo,
       monto_R:req.body.monto_R,
+      nombre_V:req.body.nombre_V,
+      nombre_R:req.body.nombre_R,
       fecha:req.body.fecha
     });
   

@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 
 //add justo despues 
 //require("./app/routes/customer.routes.js")(app);
+require("./app/routes/cruces.routes.js")(app);
 require("./app/routes/posturas_roja.routes.js")(app);
 require("./app/routes/posturas.routes.js")(app);
 require("./app/routes/usuarios.routes.js")(app);
