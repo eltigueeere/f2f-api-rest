@@ -30,7 +30,8 @@ const Cruces = function(cruces){
 
 
 Cruces.findCruces = (id_usuario, result) => {
-  sql.query("SELECT tb_posturas1.nombre_V, tb_posturas1.nombre_R, tb_posturas1.monto_R, tb_posturas1.fecha, tb_apuestas.nombreVerde, tb_apuestas.nombreRojo FROM tb_posturas1 INNER JOIN tb_apuestas ON tb_posturas1.id_apuesta = tb_apuestas.id WHERE  tb_posturas1.id_usuario_V = " + "'" + id_usuario  + "'" + " OR tb_posturas1.id_usuario_R = " + "'" + id_usuario  + "'" + " AND tb_posturas1.status_pelea = '0' ORDER BY fecha ASC", (err, res) => {
+  //sql.query("SELECT tb_posturas1.nombre_V, tb_posturas1.nombre_R, tb_posturas1.monto_V, tb_posturas1.monto_R, tb_posturas1.fecha, tb_apuestas.nombreVerde, tb_apuestas.nombreRojo FROM tb_posturas1 INNER JOIN tb_apuestas ON tb_posturas1.id_apuesta = tb_apuestas.id WHERE  tb_posturas1.id_usuario_V = " + "'" + id_usuario  + "'" + " OR tb_posturas1.id_usuario_R = " + "'" + id_usuario  + "'" + " AND tb_posturas1.status_pelea = '0' AND tb_posturas1.monto_V = tb_posturas1.monto_R ORDER BY fecha ASC", (err, res) => {
+    sql.query("SELECT tb_posturas1.id_apuesta, tb_posturas1.id_usuario_V, tb_posturas1.id_usuario_R, tb_posturas1.monto_V, tb_posturas1.monto_R, tb_posturas1.fecha, tb_apuestas.nombreVerde, tb_apuestas.nombreRojo, tb_posturas1.nombre_V, tb_posturas1.nombre_R FROM tb_posturas1 INNER JOIN tb_apuestas ON tb_posturas1.id_apuesta = tb_apuestas.id WHERE  tb_posturas1.monto_V != 0 AND tb_posturas1.monto_R != 0 AND (tb_posturas1.id_usuario_V = " + "'" + id_usuario  + "'" + " OR tb_posturas1.id_usuario_R = " + "'" + id_usuario  + "'" + ") ORDER BY tb_posturas1.fecha ASC", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
